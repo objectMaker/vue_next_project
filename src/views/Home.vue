@@ -5,14 +5,18 @@
 
 <script lang="ts" setup>
 import axios from "axios";
+import type { AxiosResponse, AxiosError } from "axios";
 import { ref, onMounted } from "vue";
 const homeWords = ref("homeWords");
+interface objInterface {
+  obj: string;
+}
 onMounted(() => {
   axios.get("/userInfo").then(
-    (res: any) => {
+    (res: AxiosResponse<objInterface>) => {
       console.log(res, "res");
     },
-    (err: any) => {
+    (err: AxiosError) => {
       console.log(err, "err");
     }
   );
