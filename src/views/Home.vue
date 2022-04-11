@@ -1,18 +1,24 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
-  </div>
+  <div class="home">我是home哟</div>
+  <div>{{ homeWords }}</div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
-import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
-
-export default defineComponent({
-  name: "Home",
-  components: {
-    HelloWorld,
-  },
+<script lang="ts" setup>
+import axios from "axios";
+import type { AxiosResponse, AxiosError } from "axios";
+import { ref, onMounted } from "vue";
+const homeWords = ref("homeWords");
+interface objInterface {
+  obj: string;
+}
+onMounted(() => {
+  axios.get("/userInfo").then(
+    (res: AxiosResponse<objInterface>) => {
+      console.log(res, "res");
+    },
+    (err: AxiosError) => {
+      console.log(err, "err");
+    }
+  );
 });
 </script>
