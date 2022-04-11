@@ -1,6 +1,6 @@
 import { instance } from "./requestInstance";
-import type { AxiosRequestConfig, AxiosInterceptorManager } from "axios";
+// import type { AxiosRequestConfig, AxiosInterceptorManager } from "axios";
 instance.interceptors.request.use((config)=>{
-    config.baseURL = 
+    // config.baseURL = 
    return config
 })
