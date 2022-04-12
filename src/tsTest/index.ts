@@ -34,3 +34,24 @@ type SelfOmit<T, D extends keyof any> = SelfPick<T, SelfExclude<keyof T, D>>;
 type f = SelfOmit<test, 213>;
 
 type y = keyof any;
+
+//readonly
+type SelfReadonly<T> = {
+  readonly [P in keyof T]: T[P];
+};
+
+//required完成
+type SelfRequired<T extends object> = {
+  [P in keyof T]-?: T[P];
+};
+type r = SelfRequired<test>;
+
+//数组铺平使用record。
+type SelfRecord<K extends keyof any, D> = {
+  [P in K]: D;
+};
+
+let arr: SelfRecord<string | number, test> = {
+  123: { name: "byf", age: 123 },
+  34: { age: 333 },
+};
