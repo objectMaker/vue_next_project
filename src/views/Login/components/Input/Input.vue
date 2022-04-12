@@ -12,9 +12,6 @@ const handleEmitValue = (e) => {
   console.log("emits触发");
   emits("update:nam", e.target.value);
 };
-type propsType = {
-  name: string,
-};
 // eslint-disable-next-line no-undef
 const props = defineProps({
   nam: {
