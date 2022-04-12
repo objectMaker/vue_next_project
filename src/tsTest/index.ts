@@ -41,7 +41,7 @@ type SelfReadonly<T> = {
 };
 
 //required完成
-type SelfRequired<T extends object> = {
+type SelfRequired<T> = {
   [P in keyof T]-?: T[P];
 };
 type r = SelfRequired<test>;
@@ -51,7 +51,8 @@ type SelfRecord<K extends keyof any, D> = {
   [P in K]: D;
 };
 
-let arr: SelfRecord<string | number, test> = {
-  123: { name: "byf", age: 123 },
-  34: { age: 333 },
+const arr: SelfRecord<string, test> = {
+  "123": { name: "byf", age: 123 },
+  "213": { age: 333 },
 };
+console.log(arr);
