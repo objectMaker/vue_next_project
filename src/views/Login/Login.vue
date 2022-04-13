@@ -13,8 +13,8 @@ const account = ref("");
 const password = ref("");
 const name = ref("n");
 const getInfo = () => {
-  console.log("username:", account.value);
   console.log("password:", password.value);
+  console.log("username:", account.value);
 };
 </script>
 <style scoped lang="scss"></style>
