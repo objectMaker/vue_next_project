@@ -6,14 +6,15 @@ export const Interceptors: interceptors = {
   requestSuccessInterceptor: function (
     config: AxiosRequestConfig<any>
   ): AxiosRequestConfig<any> {
-    config.baseURL = "http://192.168.117.96:8080";
-    config.timeout = 5000;
+    console.log("请求拦截器");
     return config;
   },
   requestErrorInterceptor: function (err: any) {
     console.log(err, "可能是网络错误");
   },
   responseSuccessInterceptor: function (res: AxiosResponse<string>) {
+    console.log("响应拦截器");
+
     return res.data;
   },
   responseErrorInterceptor: function (err: any) {
