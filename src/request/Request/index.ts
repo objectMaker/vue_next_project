@@ -7,7 +7,7 @@ export default class Request {
     console.log(config.baseURL);
 
     this.instance = axios.create({
-      baseURL: config.baseURL,
+      ...config,
     }); //根据配置生成aixos实例。
     this.instance.interceptors.request.use(
       config.requestSuccessInterceptor,

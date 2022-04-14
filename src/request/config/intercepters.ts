@@ -19,5 +19,6 @@ export const Interceptors: interceptors = {
   },
   responseErrorInterceptor: function (err: any) {
     console.log("errr");
+    return err;
   },
 };
