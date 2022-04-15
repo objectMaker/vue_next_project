@@ -2,6 +2,7 @@
   <div class="home">我是home哟</div>
   <div>{{ homeWords }}</div>
   <div>{{ name }}</div>
+  <div>{{ comName }}</div>
   <Login />
 </template>
 
@@ -13,12 +14,13 @@ import { storeToRefs } from "pinia";
 import { userInfoStore as b } from "@/store/userInfo";
 import Login from "./Login/Login.vue";
 let a = b();
-let { name } = storeToRefs(a);
+let { name, comName } = storeToRefs(a);
 
 const homeWords = ref("homeWords");
 interface objInterface {
   obj: string;
 }
+
 onMounted(() => {
   axios.get("/userInfo").then(
     (res: AxiosResponse<objInterface>) => {
