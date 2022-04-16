@@ -15,6 +15,8 @@
   </div>
   <hr />
   <Input v-model:nam="name" />
+  <Toast ref="toast" />
+  <button @click="showSomeThing">点击显示弹窗</button>
 </template>
 <script setup>
 import { instance } from "@/request";
@@ -22,6 +24,12 @@ import Input from "./components/Input/Input";
 import { ref } from "vue";
 import { storeToRefs } from "pinia";
 import { userInfoStore } from "@/store/userInfo";
+import Toast from "@/components/Toast";
+const showSomeThing = () => {
+  console.log(Toast);
+  console.log(toast.value.showDialog("弹窗内容"));
+};
+const toast = ref(null);
 const { name } = storeToRefs(userInfoStore());
 const account = ref("");
 const password = ref("");
