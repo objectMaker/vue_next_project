@@ -1,20 +1,16 @@
 <template>
-  <div v-if="dialogVisible">
+  <div>
     <div>{{ content }}</div>
-    <button @click="closeDialogVisible">关闭弹窗</button>
+    <!-- <button @click="closeDialogVisible">关闭弹窗</button> -->
   </div>
 </template>
 <script setup lang="ts">
 import { ref, defineExpose } from "vue";
-const content = ref("");
-const dialogVisible = ref(false);
+const content = ref("3213123");
 const showDialog = (val: string) => {
-  dialogVisible.value = true;
   content.value = val;
 };
-const closeDialogVisible = () => {
-  dialogVisible.value = false;
-};
+
 defineExpose({
   showDialog,
 });
