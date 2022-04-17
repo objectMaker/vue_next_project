@@ -5,5 +5,6 @@ import "normalize.css"; //全局引入重置样式表
 // import "@/mock/index.ts";
 import "./index.css";
 import { createPinia } from "pinia";
+import "./Plugins/testDecorator";
 const pinia = createPinia();
 createApp(App).use(router).use(pinia).mount("#app");

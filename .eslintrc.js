@@ -12,6 +12,10 @@ module.exports = {
   ],
   parserOptions: {
     ecmaVersion: 2020,
+    ecmaFeatures: {
+      // 支持装饰器
+      legacyDecorators: true,
+    },
   },
   rules: {
     "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",

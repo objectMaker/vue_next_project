@@ -14,20 +14,18 @@
     <div>盒子</div>
   </div>
   <hr />
-  <Input v-model:nam="name" />
   <button @click="showSomeThing">显示弹窗</button>
   <button @click="closeToast">关闭弹窗</button>
 </template>
-<script setup>
+<script setup lang="ts">
 import { instance } from "@/request";
-import Input from "./components/Input/Input";
 import { ref } from "vue";
 import { storeToRefs } from "pinia";
 import { userInfoStore } from "@/store/userInfo";
 import ToastShow from "@/components/ToastShow";
 const showSomeThing = () => {
   //调用Toast上面的方法 进行全局安装组件
-  ToastShow.showToast();
+  ToastShow.showToast("");
 };
 const closeToast = () => {
   console.log("关闭弹窗");
