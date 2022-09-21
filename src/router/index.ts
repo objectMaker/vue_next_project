@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 // const getAsyncRoutes = require.context("@/views/", true, /\.vue$/);
+//webpack打包
 const files = require.context("@/views", true, /\.vue$/);
 const fileArray = files.keys();
 const routeArr = fileArray
@@ -12,11 +13,15 @@ const routeArr = fileArray
 const routes: Array<RouteRecordRaw> = [];
 routeArr.map((item) => {
   routes.push({
+    name: item,
     path: "/" + item,
     component: import(`@/views/${item}/index.vue`),
   });
 });
-console.log(routes, "routesss");
+routes.push({
+  path: "/",
+  redirect: "Home",
+});
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
