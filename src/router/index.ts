@@ -22,6 +22,10 @@ routes.push({
   path: "/",
   redirect: "Home",
 });
+routes.push({
+  path: "/:pathMatch(.*)*",
+  redirect: "404",
+});
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
