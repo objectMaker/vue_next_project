@@ -9,13 +9,13 @@ const routeArr = fileArray
   })
   .map((item) => {
     return item.split("/")[1];
-  });
+  }); 
 const routes: Array<RouteRecordRaw> = [];
 routeArr.map((item) => {
   routes.push({
     name: item,
     path: "/" + item,
-    component: import(`@/views/${item}/index.vue`),
+    component: () => import(`@/views/${item}/index.vue`),
   });
 });
 routes.push({
