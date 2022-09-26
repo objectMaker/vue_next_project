@@ -5,8 +5,9 @@
   <div>{{ state.person.age }}</div>
 </template>
 <script setup lang="ts">
-import { reactive } from "vue";
 import testToRefs from "./components/test-toRefs.vue";
+const a = ref<number>(1);
+const props = defineProps(["foo", "bar"]);
 const state = reactive({
   person: {
     name: "ybf",
