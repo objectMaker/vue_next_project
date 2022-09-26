@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@types/mockjs": "^1.0.6",
+    "animate.css": "^4.1.1",
     "axios": "^0.26.1",
     "element-plus": "^2.2.17",
     "mitt": "^3.0.0",
